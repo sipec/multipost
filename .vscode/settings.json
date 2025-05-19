@@ -1,0 +1,13 @@
+{
+ "[javacript][javascriptreact][typescript][typescriptreact][json][jsonc][css][graphql]": {
+  "editor.defaultFormatter": "biomejs.biome"
+ },
+
+ "editor.tabSize": 1,
+
+ // Sinclair-ish settings
+ "editor.codeActionsOnSave": {
+  "source.organizeImports": "explicit",
+  "source.fixAll.biome": "explicit"
+ }
+}

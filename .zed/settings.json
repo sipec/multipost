@@ -1,0 +1,10 @@
+{
+ "tab_size": 1,
+ "lsp": {
+  "biome": {
+   "settings": {
+    "config_path": "biome.jsonc"
+   }
+  }
+ }
+}
