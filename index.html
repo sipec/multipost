@@ -31,17 +31,29 @@
     </span>
    </div>
    <div style="display:flex; flex-direction:column; gap:16px;">
-    <button type="submit" form="f" formaction="https://twitter.com/intent/tweet">𝕏 twitter</button>
-    <button type="submit" form="f" formaction="https://bsky.app/intent/compose">🦋 bluesky </button>
+    <div class="platform-row">
+     <button type="submit" form="f" formaction="https://twitter.com/intent/tweet" id="twitter">𝕏 twitter</button>
+     <input type="checkbox" checked>
+    </div>
+    <div class="platform-row">
+     <button type="submit" form="f" formaction="https://bsky.app/intent/compose" id="bluesky">🦋 bluesky</button>
+     <input type="checkbox" checked>
+    </div>
 
-    <!-- tumblr requires a source url for their post composer to work -->
-    <button type="submit" form="f" formaction="https://www.tumblr.com/share/tool?posttype=text&title=&canonicalUrl=https%3A%2F%2Fwww.crosspasta.com&content="
-     id="tumblr"
-     disabled
-    >
-     🥃 tumblr
-    </button>
-    <button type="submit" form="f" formaction="https://s2f.kytta.dev/?instance=https%3A%2F%2Fmastodon.xyz">🐘 mastodon</button>
+    <div class="platform-row">
+     <button type="submit" form="f" formaction="https://www.tumblr.com/share/tool?posttype=text&title=&canonicalUrl=https%3A%2F%2Fwww.crosspasta.com&content="
+      id="tumblr"
+      disabled
+     >
+      🥃 tumblr
+     </button>
+     <input type="checkbox">
+    </div>
+
+    <div class="platform-row">
+     <button type="submit" form="f" formaction="https://s2f.kytta.dev/?instance=https%3A%2F%2Fmastodon.xyz" id="mastodon">🐘 mastodon</button>
+     <input type="checkbox">
+    </div>
    </div>
   </div>
   <script type="module" src="/src/main.ts"></script>
