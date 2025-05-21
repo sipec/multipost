@@ -6,6 +6,7 @@ const $$ = document.querySelectorAll.bind(document)
 
 const form = $('form') as HTMLFormElement
 const input = $('textarea') as HTMLTextAreaElement
+const pre = $('pre span') as HTMLSpanElement
 const charCount = $('#char-count') as HTMLSpanElement
 const postAll = $('#post-all') as HTMLButtonElement
 const platforms = $$('button[type="submit"]') as NodeListOf<HTMLButtonElement>
@@ -61,6 +62,7 @@ postAll.removeAttribute('disabled')
 for (const p of platforms) p.removeAttribute('disabled')
 
 input.addEventListener('input', () => {
+ pre.textContent = input.value
  charCount.textContent = `${input.value.length}`
 })
 
@@ -82,6 +84,7 @@ const params = new URLSearchParams(window.location.search)
 const text = params.get('text')
 if (text) {
  input.value = text
+ pre.textContent = text
  charCount.textContent = `${text.length}`
  const [first, ...rest] = selection.map(getUrl)
  for (const u of rest) visit(u)
