@@ -50,12 +50,12 @@ platforms.forEach((button, i) => {
 form.addEventListener('submit', (e) => {
  if (e.submitter) {
   e.preventDefault()
-  visit(e.submitter as any)
+  visit(getUrl(e.submitter as any))
  }
 })
 
 postAll.addEventListener('click', () => {
- for (const s of selection) visit(getUrl(s))
+ for (const s of selection) visit(getUrl($(`#${s}`) as any))
 })
 postAll.removeAttribute('disabled')
 
@@ -66,8 +66,7 @@ input.addEventListener('input', () => {
  charCount.textContent = `${input.value.length}`
 })
 
-const getUrl = (buttonId: string) => {
- const button = $(`#${buttonId}`) as HTMLButtonElement
+const getUrl = (button: HTMLButtonElement) => {
  if (button.disabled) return
  const base = button.getAttribute('formaction')
  if (!base) throw Error('no url to visit')
@@ -86,7 +85,7 @@ if (text) {
  input.value = text
  pre.textContent = text
  charCount.textContent = `${text.length}`
- const [first, ...rest] = selection.map(getUrl)
+ const [first, ...rest] = selection.map((s) => getUrl($(`#${s}`) as any))
  for (const u of rest) visit(u)
  if (first) setTimeout(() => window.location.replace(first), 0)
 }
