@@ -1,13 +1,49 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <script type="module" src="/src/main.ts"></script>
-    <div id="app"></div>
-  </body>
+ <head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cook for Everyone" />
+  <title>crosspasta</title>
+ </head>
+ <body style="padding:16px;">
+  <div style="max-width:800px; margin: 0 auto;">
+   <form id="f" target="_blank">
+    <textarea name="text" placeholder="What's on your mind?"></textarea>
+   </form>
+   <div style="display:flex; justify-content: space-between; margin: 16px 0;">
+    <span>
+     <!-- TODO: emoji selector -->
+     <!-- TODO: copy to clipbaord -->
+    </span>
+
+    <span style="display:flex; align-items:center; gap:16px;">
+     <span id="char-count" style="font-size:24px; font-weight: 700;"></span>
+     <button id="post-all" type="button" disabled
+      style="border-radius:calc(infinity*1px); font-weight: 800; font-size:16px; padding: 12px 24px; background-color:var(--primary)"
+     >
+      Post all
+     </button>
+    </span>
+   </div>
+   <div style="display:flex; flex-direction:column; gap:16px;">
+    <button type="submit" form="f" formaction="https://twitter.com/intent/tweet">𝕏 twitter</button>
+    <button type="submit" form="f" formaction="https://bsky.app/intent/compose">🦋 bluesky </button>
+
+    <!-- tumblr requires a source url for their post composer to work -->
+    <button type="submit" form="f" formaction="https://www.tumblr.com/share/tool?posttype=text&title=&canonicalUrl=https%3A%2F%2Fwww.crosspasta.com&content="
+     id="tumblr"
+     disabled
+    >
+     🥃 tumblr
+    </button>
+    <button type="submit" form="f" formaction="https://s2f.kytta.dev/?instance=https%3A%2F%2Fmastodon.xyz">🐘 mastodon</button>
+   </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+ </body>
 </html>

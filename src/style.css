@@ -1,11 +1,16 @@
 :root {
- font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+ --black: #000000;
+ --gray: #808080;
+ --white: #ffffff;
+ --primary: #fbff85;
+ --secondary: #fd6495;
+ background-color: #f55438;
+ color-scheme: light;
+ color: var(--black);
+
+ font-family: Public Sans, system-ui, Avenir, Helvetica, Arial, sans-serif;
  line-height: 1.5;
  font-weight: 400;
-
- color-scheme: light dark;
- color: rgba(255, 255, 255, 0.87);
- background-color: #242424;
 
  font-synthesis: none;
  text-rendering: optimizeLegibility;
@@ -13,11 +18,69 @@
  -moz-osx-font-smoothing: grayscale;
 }
 
-a,
-button {
- cursor: pointer;
+* {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ font-family: inherit;
 }
 
+html,
 body {
- margin: 0;
+ min-height: 100vh;
+}
+
+form {
+ border: 4px solid var(--black);
+ overflow: hidden;
+ display: flex;
+}
+
+textarea {
+ outline: none;
+ border: none;
+
+ padding: 16px;
+
+ color: var(--black);
+ background: var(--white);
+
+ width: 100%;
+ height: 200px;
+ font-size: 24px;
+ resize: none;
+ transform: translate(0, 0);
+ transition: transform 0.08s;
+}
+
+textarea:focus {
+ transform: translate(-4px, 4px);
+}
+
+button {
+ cursor: pointer;
+ transition: transform 0.1s, box-shadow 0.1s;
+ display: inline-block;
+ padding: 12px 24px;
+ font-weight: 600;
+ font-size: 20px;
+ text-decoration: none;
+ border: 4px solid var(--black);
+ background-color: var(--secondary);
+}
+
+button[disabled] {
+ cursor: not-allowed;
+ opacity: 0.5;
+}
+
+button:not([disabled]):hover,
+button:not([disabled]):focus-visible {
+ transform: translate(4px, -4px);
+ box-shadow: -4px 4px 0 var(--black);
+}
+
+button:not([disabled]):active {
+ transform: translate(0, 0);
+ box-shadow: none;
 }
