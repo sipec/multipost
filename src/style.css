@@ -146,3 +146,11 @@ input[type="checkbox"] {
   opacity: 1;
  }
 }
+
+a {
+ color: var(--primary);
+ text-decoration: none;
+ &:hover {
+  text-decoration: underline;
+ }
+}

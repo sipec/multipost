@@ -10,8 +10,8 @@
   <meta name="description" content="Cook for Everyone" />
   <title>crosspasta</title>
  </head>
- <body style="padding:16px;">
-  <div style="max-width:800px; margin: 0 auto;">
+ <body style="padding:16px; min-height:100vh; display:flex; flex-direction:column; align-items: stretch;">
+  <div style="max-width:800px; margin: 0 auto; width:100%;">
    <form id="f" target="_blank">
     <div class="expanding-area"><pre><span></span><br></pre>
      <textarea name="text" placeholder="What's on your mind?"></textarea>
@@ -60,6 +60,11 @@
     </div>
    </div>
   </div>
+  <footer style="margin-top: auto; padding:4px 0; display:flex; gap:12px; justify-content:center; color:var(--gray); font-size:14px; font-weight:300;">
+   <a href="https://x.com/singularitttt">@singularitttt</a>
+   <a href="https://bsky.app/profile/sincl.ai">@sincl.ai</a>
+   <a href="https://github.com/sipec/multipost">sauce</a>
+  </footer>
   <script type="module" src="/src/main.js"></script>
  </body>
 </html>
