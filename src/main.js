@@ -4,13 +4,13 @@ import './style.css'
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
-const form = $('form') as HTMLFormElement
-const input = $('textarea') as HTMLTextAreaElement
-const pre = $('pre span') as HTMLSpanElement
-const charCount = $('#char-count') as HTMLSpanElement
-const postAll = $('#post-all') as HTMLButtonElement
-const platforms = $$('button[type="submit"]') as NodeListOf<HTMLButtonElement>
-const checkboxes = $$('input[type="checkbox"]') as NodeListOf<HTMLInputElement>
+const form = $('form')
+const input = $('textarea')
+const pre = $('pre span')
+const charCount = $('#char-count')
+const postAll = $('#post-all')
+const platforms = $$('button[type="submit"]')
+const checkboxes = $$('input[type="checkbox"]')
 
 // Platform selection for post all
 const STORAGE_KEY = 'platform-selection'
@@ -18,7 +18,7 @@ let selection = ['twitter', 'bluesky']
 
 try {
  const saved = localStorage.getItem(STORAGE_KEY)
- if (saved) selection = JSON.parse(saved) as string[]
+ if (saved) selection = JSON.parse(saved)
 } catch {
  // ignore read error
 }
@@ -50,12 +50,12 @@ platforms.forEach((button, i) => {
 form.addEventListener('submit', (e) => {
  if (e.submitter) {
   e.preventDefault()
-  visit(getUrl(e.submitter as any))
+  visit(getUrl(e.submitter))
  }
 })
 
 postAll.addEventListener('click', () => {
- for (const s of selection) visit(getUrl($(`#${s}`) as any))
+ for (const s of selection) visit(getUrl($(`#${s}`)))
 })
 postAll.removeAttribute('disabled')
 
@@ -66,7 +66,7 @@ input.addEventListener('input', () => {
  charCount.textContent = `${input.value.length}`
 })
 
-const getUrl = (button: HTMLButtonElement) => {
+const getUrl = (button) => {
  if (button.disabled) return
  const base = button.getAttribute('formaction')
  if (!base) throw Error('no url to visit')
@@ -76,7 +76,7 @@ const getUrl = (button: HTMLButtonElement) => {
  return url
 }
 
-const visit = (url?: URL) => window.open(url, '_blank')
+const visit = (url) => window.open(url, '_blank')
 
 // Check for text query parameter on load
 const params = new URLSearchParams(window.location.search)
@@ -85,7 +85,7 @@ if (text) {
  input.value = text
  pre.textContent = text
  charCount.textContent = `${text.length}`
- const [first, ...rest] = selection.map((s) => getUrl($(`#${s}`) as any))
+ const [first, ...rest] = selection.map((s) => getUrl($(`#${s}`)))
  for (const u of rest) visit(u)
  if (first) setTimeout(() => window.location.replace(first), 0)
 }

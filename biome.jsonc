@@ -26,11 +26,10 @@
     "useExhaustiveDependencies": "off",
     "useHookAtTopLevel": "error"
    },
-   "style": { "noNamespace": "error", "noNonNullAssertion": "off" },
+   "style": { "noNamespace": "error" },
    "suspicious": {
     "noAssignInExpressions": "off",
     "noEmptyBlockStatements": "warn",
-    "noExplicitAny": "off",
     "noArrayIndexKey": "warn"
    },
    "nursery": {
@@ -54,19 +53,5 @@
    "semicolons": "asNeeded",
    "quoteStyle": "single"
   }
- },
- "overrides": [
-  {
-   "include": ["**/*.ts", "**/*.tsx"],
-   "linter": {
-    "rules": {
-     "correctness": {
-      // can remove these in biome 2.0, see https://github.com/biomejs/biome/issues/5401
-      "noUndeclaredDependencies": "off",
-      "noUndeclaredVariables": "off"
-     }
-    }
-   }
-  }
- ]
+ }
 }

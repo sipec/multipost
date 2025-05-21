@@ -5,14 +5,13 @@
  "type": "module",
  "scripts": {
   "dev": "bunx --bun vite",
-  "build": "tsc && vite build",
+  "build": "vite build",
   "preview": "vite preview",
   "format": "biome format . --fix",
   "lint": "biome check . --fix"
  },
  "devDependencies": {
   "@biomejs/biome": "^1.9.4",
-  "typescript": "~5.8.3",
   "vite": "^6.3.5"
  }
 }

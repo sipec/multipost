@@ -1,6 +1,6 @@
 # crosspasta.com
 
-bun vite biome typescript project. no frameworks. deploys as a SPA on cloudflare pages
+bun vite biome js project. no frameworks. deploys as a SPA on cloudflare pages
 all this site does is that it lets you compose a shortform post send to twitter, bluesky, maybe other sites.
 very simple, just BIG text field and buttons with the site share urls.
 progressively enhanced - without js its still a form that opens urls, assuming `text` query param.
