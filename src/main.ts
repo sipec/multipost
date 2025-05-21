@@ -54,7 +54,7 @@ form.addEventListener('submit', (e) => {
 })
 
 postAll.addEventListener('click', () => {
- for (const s of selection) visit($(`#${s}`) as any)
+ for (const s of selection) visit(getUrl(s))
 })
 postAll.removeAttribute('disabled')
 
@@ -64,12 +64,26 @@ input.addEventListener('input', () => {
  charCount.textContent = `${input.value.length}`
 })
 
-const visit = (button: HTMLButtonElement) => {
+const getUrl = (buttonId: string) => {
+ const button = $(`#${buttonId}`) as HTMLButtonElement
  if (button.disabled) return
  const base = button.getAttribute('formaction')
  if (!base) throw Error('no url to visit')
  const url = new URL(base)
  const param = button.dataset.param || 'text'
  url.searchParams.set(param, input.value)
- window.open(url, '_blank')
+ return url
+}
+
+const visit = (url?: URL) => window.open(url, '_blank')
+
+// Check for text query parameter on load
+const params = new URLSearchParams(window.location.search)
+const text = params.get('text')
+if (text) {
+ input.value = text
+ charCount.textContent = `${text.length}`
+ const [first, ...rest] = selection.map(getUrl)
+ for (const u of rest) visit(u)
+ if (first) setTimeout(() => window.location.replace(first), 0)
 }
