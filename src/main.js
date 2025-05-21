@@ -87,5 +87,5 @@ if (text) {
  charCount.textContent = `${text.length}`
  const [first, ...rest] = selection.map((s) => getUrl($(`#${s}`)))
  for (const u of rest) visit(u)
- if (first) setTimeout(() => window.location.replace(first), 0)
+ if (first) setTimeout(() => window.location.replace(first), 150)
 }
